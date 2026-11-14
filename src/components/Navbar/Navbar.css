@@ -1,0 +1,226 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  transition: background-color var(--transition), border-color var(--transition);
+  border-bottom: 1px solid transparent;
+  padding: 0 48px;
+}
+
+.navbar--scrolled {
+  background-color: rgba(28, 29, 32, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* Brand Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.navbar__monogram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--ivory);
+  line-height: 1;
+}
+
+/* Right side */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navbar__link {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ivory-dim);
+  transition: color var(--transition-fast);
+  position: relative;
+  padding: 6px 0;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #FFFFFF;
+}
+
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--terracotta);
+}
+
+/* Actions */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ivory-dim);
+  transition: color var(--transition-fast);
+  position: relative;
+  padding: 6px;
+}
+
+.navbar__icon-btn:hover {
+  color: #FFFFFF;
+}
+
+.navbar__cart-btn {
+  position: relative;
+}
+
+.navbar__cart-count {
+  position: absolute;
+  top: 1px;
+  right: -2px;
+  width: 15px;
+  height: 15px;
+  background-color: var(--terracotta);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 0.58rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile burger */
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 0;
+  margin-left: 8px;
+}
+
+.navbar__burger-line {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background-color: var(--ivory);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.navbar__burger-line.open:nth-child(1) {
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.navbar__burger-line.open:nth-child(2) {
+  transform: translateY(-3.75px) rotate(-45deg);
+}
+
+/* Mobile full drawer */
+.navbar__mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-primary);
+  z-index: 99;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 32px 48px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.navbar__mobile-menu--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar__mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.navbar__mobile-link {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ivory);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.navbar__mobile-link.active {
+  color: var(--terracotta);
+}
+
+.navbar__mobile-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.navbar__mobile-social {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 20px;
+  }
+  .navbar__nav {
+    display: none;
+  }
+  .navbar__burger {
+    display: flex;
+  }
+  .navbar__mobile-menu {
+    display: flex;
+  }
+}

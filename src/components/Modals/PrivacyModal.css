@@ -1,0 +1,82 @@
+.privacy-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 11, 13, 0.78);
+  backdrop-filter: blur(8px);
+  z-index: 190;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.privacy-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+}
+
+.privacy-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  padding: 6px;
+  transition: color var(--transition-fast);
+}
+
+.privacy-modal-close:hover {
+  color: #FFFFFF;
+}
+
+.privacy-modal-header {
+  padding: 32px 36px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.privacy-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ivory);
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+}
+
+.privacy-modal-content {
+  padding: 24px 36px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.privacy-modal-content h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ivory);
+  margin-top: 10px;
+}
+
+.privacy-modal-content ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.privacy-modal-footer {
+  padding: 20px 36px 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+}

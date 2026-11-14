@@ -1,0 +1,217 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-primary);
+  padding: calc(var(--nav-height) + 24px) 48px 48px;
+  overflow: hidden;
+}
+
+.hero__canvas {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) 1fr 100px;
+  align-items: center;
+  gap: 56px;
+  min-height: calc(100vh - var(--nav-height) - 72px);
+}
+
+/* Left: Framed Portrait (SŪTRA Style) */
+.hero__portrait-frame {
+  position: relative;
+  width: 100%;
+  height: clamp(480px, 72vh, 680px);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.45);
+}
+
+.hero__portrait-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero__portrait-img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Center: Editorial Typography & CTA */
+.hero__editorial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0 20px 24px;
+}
+
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.2vw, 5.6rem);
+  font-weight: 600;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  margin-bottom: 24px;
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 440px;
+  margin-bottom: 36px;
+}
+
+.hero__action {
+  display: flex;
+  align-items: center;
+}
+
+.hero__cta-btn {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  padding: 15px 36px;
+  border-radius: var(--radius-pill);
+}
+
+/* Right: Vertical Thumbnail Strip (SŪTRA Reference) */
+.hero__strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  justify-self: end;
+}
+
+.hero__strip-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero__strip-arrow:hover {
+  color: var(--ivory);
+  transform: translateY(-2px);
+}
+
+.hero__strip-arrow--down:hover {
+  transform: translateY(2px);
+}
+
+.hero__thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero__thumb-btn {
+  position: relative;
+  width: 74px;
+  height: 98px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--bg-surface);
+  border: 1.5px solid transparent;
+  opacity: 0.45;
+  transition: opacity var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  cursor: pointer;
+}
+
+.hero__thumb-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.hero__thumb-btn.active {
+  opacity: 1;
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 1px var(--terracotta);
+}
+
+.hero__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Responsive Editorial Layouts */
+@media (max-width: 1200px) {
+  .hero {
+    padding: calc(var(--nav-height) + 20px) 32px 40px;
+  }
+  .hero__canvas {
+    grid-template-columns: minmax(280px, 360px) 1fr 80px;
+    gap: 36px;
+  }
+  .hero__thumb-btn {
+    width: 66px;
+    height: 88px;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero {
+    padding: calc(var(--nav-height) + 16px) 24px 40px;
+    min-height: auto;
+  }
+  .hero__canvas {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero__portrait-frame {
+    height: 55vh;
+    max-height: 520px;
+  }
+  .hero__editorial {
+    padding: 0;
+  }
+  .hero__title {
+    font-size: clamp(2.6rem, 8vw, 4rem);
+    margin-bottom: 16px;
+  }
+  .hero__subtitle {
+    margin-bottom: 28px;
+  }
+  .hero__strip {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: 12px;
+  }
+  .hero__thumbnails {
+    flex-direction: row;
+    gap: 12px;
+  }
+  .hero__strip-arrow--up {
+    transform: rotate(-90deg);
+  }
+  .hero__strip-arrow--down {
+    transform: rotate(-90deg);
+  }
+}
